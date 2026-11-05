@@ -1,0 +1,70 @@
+.cta-section {
+  padding: 3rem 0 4.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.02));
+}
+
+.cta-box {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2.4rem 2.2rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #071a2f, #0b2742 52%, #133454);
+  border: 1px solid rgba(201, 154, 61, 0.2);
+  box-shadow: 0 25px 55px rgba(7, 26, 47, 0.18);
+}
+
+.cta-box h2 {
+  margin: 0.4rem 0 0;
+  color: var(--white);
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.cta-box p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.8;
+}
+
+.section-kicker.light {
+  color: var(--gold-soft);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: flex-end;
+}
+
+.light-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 980px) {
+  .cta-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cta-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .cta-box {
+    padding: 2rem 1.2rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .cta-actions .primary-btn,
+  .cta-actions .secondary-btn {
+    width: 100%;
+  }
+}

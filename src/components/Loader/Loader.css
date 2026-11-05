@@ -1,0 +1,352 @@
+/* ===== WeManage Premium Loader ===== */
+
+.loader-shell {
+  --navy-900: #050f1d;
+  --navy-800: #071a2f;
+  --navy-700: #0b2742;
+  --gold: var(--gold-main, #c99a3d);
+  --gold-soft: var(--gold-light, #f2d27a);
+  --white: #ffffff;
+
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 61, 0.2), transparent 45%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-800) 45%, var(--navy-900));
+  transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+}
+
+.loader-shell.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.04);
+}
+
+/* ---------- Aurora background ---------- */
+.loader-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.aurora-1 {
+  width: 42vmax;
+  height: 42vmax;
+  top: -12vmax;
+  left: -10vmax;
+  background: radial-gradient(circle, rgba(212, 168, 79, 0.45), transparent 70%);
+  animation: drift1 14s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+  width: 38vmax;
+  height: 38vmax;
+  bottom: -14vmax;
+  right: -8vmax;
+  background: radial-gradient(circle, rgba(56, 120, 200, 0.4), transparent 70%);
+  animation: drift2 16s ease-in-out infinite alternate;
+}
+
+.aurora-3 {
+  width: 26vmax;
+  height: 26vmax;
+  top: 40%;
+  left: 55%;
+  background: radial-gradient(circle, rgba(242, 210, 122, 0.22), transparent 70%);
+  animation: drift3 12s ease-in-out infinite alternate;
+}
+
+/* ---------- Floating particles ---------- */
+.loader-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loader-particles span {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 10px rgba(242, 210, 122, 0.8);
+  opacity: 0;
+  animation: rise linear infinite;
+}
+
+/* ---------- Glass card ---------- */
+.loader-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 2.8rem 3rem 2.2rem;
+  width: min(92vw, 440px);
+  border-radius: 32px;
+  border: 1px solid rgba(212, 168, 79, 0.4);
+  background: linear-gradient(160deg, rgba(20, 56, 92, 0.55), rgba(8, 28, 50, 0.55));
+  box-shadow:
+    0 40px 90px rgba(3, 12, 24, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  overflow: hidden;
+  animation: cardIn 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) both, cardFloat 4s ease-in-out 0.9s infinite alternate;
+}
+
+.card-sheen {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: skewX(-18deg);
+  animation: sheen 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Emblem ---------- */
+.emblem {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+}
+
+.emblem-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+}
+
+.ring-outer {
+  background: conic-gradient(from 0deg, transparent 0%, var(--gold) 35%, var(--gold-soft) 55%, transparent 75%);
+  animation: spin 2.4s linear infinite;
+}
+
+.ring-inner {
+  inset: 11px;
+  background: conic-gradient(from 180deg, transparent 0%, rgba(255, 255, 255, 0.85) 30%, transparent 60%);
+  animation: spin 3.6s linear infinite reverse;
+  opacity: 0.8;
+}
+
+.emblem-glow {
+  position: absolute;
+  inset: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 210, 122, 0.4), transparent 70%);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.emblem-core {
+  position: relative;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff3c4, var(--gold-soft) 45%, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 14px rgba(242, 210, 122, 0.55));
+}
+
+/* ---------- Brand wordmark ---------- */
+.brand-mark {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-we {
+  color: var(--white);
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  opacity: 0.95;
+}
+
+.brand-manage {
+  font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+  background: linear-gradient(100deg, var(--gold) 0%, #fff3c4 40%, var(--gold-soft) 60%, var(--gold) 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(242, 210, 122, 0.4));
+  animation: goldFlow 3.2s linear infinite;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: letterIn 0.7s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+/* ---------- Progress ---------- */
+.loader-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.loader-progress {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.loader-progress-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft), #fff);
+  transform-origin: left center;
+  transition: transform 0.35s ease-out;
+}
+
+.loader-progress-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.loader-percent {
+  min-width: 2.8rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold-soft);
+}
+
+/* ---------- Text ---------- */
+.loader-tag {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loader-tip {
+  margin: -0.5rem 0 0;
+  min-height: 1.1rem;
+  color: rgba(242, 210, 122, 0.8);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  animation: tipSwap 2s ease-in-out both;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes goldFlow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 220% 0; }
+}
+
+@keyframes letterIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cardFloat {
+  from { transform: translateY(6px); }
+  to { transform: translateY(-6px); }
+}
+
+@keyframes sheen {
+  0%, 55% { left: -60%; }
+  100% { left: 140%; }
+}
+
+@keyframes tipSwap {
+  0% { opacity: 0; transform: translateY(6px); }
+  15%, 85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  15% { opacity: 0.9; }
+  100% { transform: translateY(-105vh) scale(1.2); opacity: 0; }
+}
+
+@keyframes drift1 { to { transform: translate(8vmax, 6vmax) scale(1.1); } }
+@keyframes drift2 { to { transform: translate(-7vmax, -8vmax) scale(1.15); } }
+@keyframes drift3 { to { transform: translate(-6vmax, 5vmax) scale(0.9); } }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .loader-card {
+    padding: 2.2rem 1.4rem 1.8rem;
+    border-radius: 26px;
+  }
+
+  .emblem {
+    width: 88px;
+    height: 88px;
+  }
+
+  .emblem-core {
+    font-size: 1.9rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .loader-shell *,
+  .loader-shell *::before,
+  .loader-shell *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .letter { opacity: 1; transform: none; }
+}

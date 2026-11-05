@@ -1,0 +1,631 @@
+.study-abroad-page {
+  --study-ink: #14213d;
+  --study-muted: #526078;
+  --study-line: rgba(20, 33, 61, 0.12);
+  --study-blue: #1d4ed8;
+  --study-teal: #0e7f7c;
+  --study-gold: #c8962e;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #faf8f4;
+  color: var(--study-ink);
+}
+
+.study-abroad-page * {
+  box-sizing: border-box;
+}
+
+.study-abroad-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 560px;
+  padding: 145px max(24px, calc((100% - 1120px) / 2)) 70px;
+  overflow: hidden;
+  background: #10243e;
+  color: #fff;
+  isolation: isolate;
+}
+
+.study-abroad-hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 25, 45, 0.91), rgba(10, 25, 45, 0.65) 56%, rgba(10, 25, 45, 0.2));
+  content: '';
+}
+
+.study-abroad-hero__image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+  animation: study-image-in 0.9s ease both;
+}
+
+.study-abroad-hero__inner {
+  position: relative;
+  width: min(760px, 100%);
+  animation: study-fade-up 0.7s ease both;
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--study-gold);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.study-abroad-hero .section-kicker {
+  color: #f0cb78;
+}
+
+.study-abroad-hero h1 {
+  max-width: 720px;
+  margin: 0;
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.06;
+}
+
+.study-abroad-copy {
+  max-width: 650px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.primary-btn,
+.secondary-btn,
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.91rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.primary-btn {
+  background: var(--study-blue);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: #1740b2;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  border-color: #f0cb78;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.back-link:focus-visible,
+.country-card:focus-visible {
+  outline: 2px solid #e6b84e;
+  outline-offset: 3px;
+}
+
+.study-abroad-container {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.study-abroad-destinations {
+  padding-top: 64px;
+  padding-bottom: 84px;
+  scroll-margin-top: 24px;
+}
+
+.destinations-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 26px;
+}
+
+.destinations-heading .section-kicker {
+  flex-basis: 100%;
+  margin-bottom: -6px;
+}
+
+.destinations-heading h2 {
+  margin: 0;
+  color: var(--study-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.45rem;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.destinations-heading > p:last-child {
+  margin: 0;
+  color: var(--study-muted);
+  font-size: 0.94rem;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 3px 14px rgba(20, 33, 61, 0.05);
+  animation: study-fade-up 0.55s ease both;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.country-card:nth-child(2) { animation-delay: 60ms; }
+.country-card:nth-child(3) { animation-delay: 120ms; }
+.country-card:nth-child(4) { animation-delay: 180ms; }
+.country-card:nth-child(5) { animation-delay: 240ms; }
+.country-card:nth-child(6) { animation-delay: 300ms; }
+
+.country-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(29, 78, 216, 0.35);
+  box-shadow: 0 14px 28px rgba(20, 33, 61, 0.12);
+}
+
+.country-card__image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #dce5ed;
+}
+
+.country-card__image-wrap::after {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(10, 25, 45, 0.45));
+  content: '';
+  pointer-events: none;
+}
+
+.country-card__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.country-card:hover .country-card__image-wrap img {
+  transform: scale(1.035);
+}
+
+.country-flag {
+  position: absolute;
+  z-index: 1;
+  bottom: 12px;
+  left: 14px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.94);
+  font-size: 1.45rem;
+}
+
+.country-code {
+  position: absolute;
+  z-index: 1;
+  right: 12px;
+  bottom: 18px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.country-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 17px 18px 18px;
+}
+
+.country-card__badge {
+  color: var(--study-teal);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.country-card h3 {
+  margin: 7px 0 0;
+  color: var(--study-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.country-card p {
+  margin: 8px 0 0;
+  color: var(--study-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.country-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--study-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.study-abroad-detail-page {
+  padding-top: 116px;
+  padding-bottom: 76px;
+}
+
+.back-link {
+  justify-content: flex-start;
+  min-height: auto;
+  margin: 0 0 20px;
+  padding: 8px 0;
+  color: var(--study-blue);
+}
+
+.back-link:hover {
+  color: var(--study-teal);
+  transform: translateX(-3px);
+}
+
+.country-detail {
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(20, 33, 61, 0.07);
+  animation: study-fade-up 0.55s ease both;
+}
+
+.country-detail__image {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: #dce5ed;
+}
+
+.country-detail__image::after {
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(transparent, rgba(10, 25, 45, 0.42));
+  content: '';
+}
+
+.country-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.country-flag--large {
+  bottom: 18px;
+  left: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.country-detail__content {
+  padding: 28px 32px 0;
+}
+
+.country-detail__content h1,
+.country-not-found h1 {
+  margin: 0;
+  color: var(--study-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.country-overview {
+  max-width: 760px;
+  margin: 10px 0 0;
+  color: var(--study-muted);
+  line-height: 1.65;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 26px 32px 0;
+}
+
+.info-panel,
+.courses-panel {
+  padding: 20px;
+  border: 1px solid var(--study-line);
+  border-radius: 5px;
+  background: #faf8f4;
+}
+
+.info-panel h2,
+.courses-panel h2,
+.cta-panel h2 {
+  margin: 0;
+  color: var(--study-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.info-panel ul {
+  display: grid;
+  gap: 11px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.info-panel li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--study-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.info-panel li svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--study-teal);
+}
+
+.facts-list {
+  display: grid;
+  gap: 12px;
+  margin: 15px 0 0;
+}
+
+.facts-list div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--study-line);
+}
+
+.facts-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.facts-list dt {
+  color: #6b7890;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.facts-list dd {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: 0.87rem;
+  line-height: 1.5;
+}
+
+.facts-note {
+  margin: 13px 0 0;
+  color: #6b7890;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.courses-panel {
+  margin: 16px 32px 0;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-tags li {
+  padding: 7px 10px;
+  border: 1px solid var(--study-line);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--study-ink);
+  font-size: 0.82rem;
+}
+
+.cta-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 24px 32px;
+  background: #eef4f7;
+}
+
+.cta-panel > div {
+  max-width: 680px;
+}
+
+.cta-panel p:not(.section-kicker) {
+  margin: 8px 0 0;
+  color: var(--study-muted);
+  font-size: 0.89rem;
+  line-height: 1.6;
+}
+
+.country-not-found {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  min-height: 55vh;
+  padding-top: 160px;
+  padding-bottom: 60px;
+}
+
+.country-not-found p {
+  color: var(--study-muted);
+}
+
+@keyframes study-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes study-image-in {
+  from { opacity: 0; transform: scale(1.025); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+  .country-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .study-abroad-hero {
+    min-height: 500px;
+    padding: 125px 20px 52px;
+  }
+
+  .study-abroad-hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .study-abroad-hero::after {
+    background: linear-gradient(90deg, rgba(10, 25, 45, 0.92), rgba(10, 25, 45, 0.64));
+  }
+
+  .study-abroad-container {
+    width: calc(100% - 32px);
+  }
+
+  .study-abroad-destinations {
+    padding-top: 48px;
+    padding-bottom: 58px;
+  }
+
+  .destinations-heading h2 {
+    font-size: 2.1rem;
+  }
+
+  .destinations-heading > p:last-child {
+    max-width: 100%;
+  }
+
+  .country-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .study-abroad-detail-page {
+    padding-top: 108px;
+    padding-bottom: 54px;
+  }
+
+  .country-detail__image {
+    height: 210px;
+  }
+
+  .country-detail__content {
+    padding: 22px 18px 0;
+  }
+
+  .country-detail__content h1,
+  .country-not-found h1 {
+    font-size: 2.15rem;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 18px 0;
+  }
+
+  .courses-panel {
+    margin: 14px 18px 0;
+  }
+
+  .cta-panel {
+    padding: 22px 18px;
+  }
+
+  .cta-panel .primary-btn {
+    width: 100%;
+  }
+
+  .hero-actions .primary-btn,
+  .hero-actions .secondary-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .study-abroad-page *,
+  .study-abroad-page *::before,
+  .study-abroad-page *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

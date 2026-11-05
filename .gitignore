@@ -1,0 +1,162 @@
+
+# ==========================================
+# DEPENDENCIES
+# ==========================================
+node_modules/
+.pnp/
+.pnp.js
+
+# ==========================================
+# BUILD OUTPUT
+# ==========================================
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.output/
+coverage/
+.nyc_output/
+
+# ==========================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# ==========================================
+# LOGS
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+debug.log*
+
+# ==========================================
+# LOCAL CONFIGURATION
+# ==========================================
+*.local
+*.local.*
+.vite/
+.cache/
+.temp/
+.tmp/
+
+# ==========================================
+# EDITORS & IDE
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# TESTING & COVERAGE
+# ==========================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+cypress/videos/
+cypress/screenshots/
+
+# ==========================================
+# TYPESCRIPT
+# ==========================================
+*.tsbuildinfo
+
+# ==========================================
+# DATABASE & BACKUPS
+# ==========================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.dump
+*.bak
+*.backup
+
+# ==========================================
+# SECURITY CERTIFICATES & KEYS
+# ==========================================
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# ==========================================
+# UPLOADS & GENERATED FILES
+# ==========================================
+uploads/
+temp/
+tmp/
+storage/logs/
+
+# ==========================================
+# REACT NATIVE / EXPO
+# ==========================================
+.expo/
+.expo-shared/
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/.cxx/
+ios/Pods/
+ios/build/
+ios/DerivedData/
+*.hprof
+
+# ==========================================
+# ELECTRON
+# ==========================================
+release/
+electron-dist/
+*.asar
+
+# ==========================================
+# PYTHON (IF USED)
+# ==========================================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ==========================================
+# GENERATED FILES
+# ==========================================
+*.orig
+*.rej
+*.swp
+*.swo
+*.pid
+*.seed
