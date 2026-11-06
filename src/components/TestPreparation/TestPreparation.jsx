@@ -70,11 +70,18 @@
 
 import { useState } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
+import duolingoLogo from '../../assets/test/duolingo.png';
+import ieltsLogo from '../../assets/test/ilts.png';
+import languageCertLogo from '../../assets/test/language cert.webp';
+import oxfordLogo from '../../assets/test/oxford ellt.png';
+import pteLogo from '../../assets/test/pte.png';
+import toeflLogo from '../../assets/test/toefl-logo.jpg';
 import './TestPreparation.css';
 
 const tests = [
   {
     tag: 'TOEFL',
+    logo: toeflLogo,
     name: 'TOEFL iBT',
     description:
       'Accepted by thousands of universities worldwide, especially across the USA and Canada.',
@@ -82,27 +89,38 @@ const tests = [
   },
   {
     tag: 'LC',
+    logo: languageCertLogo,
     name: 'LanguageCert',
     description: 'A flexible, internationally recognised English test with online and centre options.',
     points: ['Level placement', 'Speaking practice partners', 'Exam booking support'],
   },
   {
     tag: 'ELLT',
+    logo: oxfordLogo,
     name: 'Oxford ELLT',
     description: 'A modern English test for study abroad, built around all four language skills.',
     points: ['Four-skill practice', 'Timed mock sessions', 'Personalised feedback'],
   },
   {
     tag: 'DET',
+    logo: duolingoLogo,
     name: 'Duolingo',
     description: 'A fast, adaptive online test with quick results, taken from home.',
     points: ['Question-type mastery', 'Writing & speaking review', 'Technical setup guidance'],
   },
   {
     tag: 'IELTS',
+    logo: ieltsLogo,
     name: 'IELTS',
     description: 'The globally trusted test for study, work and migration, Academic and General.',
     points: ['Band 7+ strategy sessions', 'Weekly writing feedback', 'One-to-one speaking mocks'],
+  },
+  {
+    tag: 'PTE',
+    logo: pteLogo,
+    name: 'PTE',
+    description: 'Computer-based test preparation with practice for every PTE task type.',
+    points: ['Task-type strategies', 'Timed practice', 'Progress tracking'],
   },
 ];
 
@@ -149,7 +167,9 @@ const TestPreparation = () => {
               <span className="tp-spark" aria-hidden="true" />
 
               <div className="tp-inner">
-                <span className="tp-tag">{t.tag}</span>
+                <span className={t.logo ? 'tp-logo-wrap' : 'tp-tag'}>
+                  {t.logo ? <img src={t.logo} alt={`${t.name} logo`} /> : t.tag}
+                </span>
 
                 {/* collapsed: vertical title */}
                 <h3 className="tp-name tp-name--vertical">{t.name}</h3>
