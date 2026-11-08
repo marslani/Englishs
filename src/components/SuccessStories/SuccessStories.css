@@ -366,20 +366,20 @@
   height: 230px;
   overflow: hidden;
   border-radius: 30px 30px 0 0;
-  background: linear-gradient(160deg, #123256, #0a2038);
+  padding: 10px;
+  background: #fff;
 }
 .ss-media img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  filter: grayscale(1) contrast(1.05);
-  transform: scale(1.02);
-  transition: filter 0.7s ease, transform 0.9s ease;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 0.45s ease;
 }
 .ss-card:hover .ss-media img {
-  filter: grayscale(0) contrast(1.05) saturate(1.08);
-  transform: scale(1.09);
+  transform: scale(1.025);
 }
 .ss-media-fade {
   position: absolute;
@@ -389,28 +389,17 @@
   pointer-events: none;
 }
 
-/* Country tag */
-.ss-tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+.ss-category {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.55rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(14, 33, 58, 0.82);
-  backdrop-filter: blur(8px);
+  align-self: flex-start;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(201, 154, 61, 0.6);
   color: var(--ss-gold-soft);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  transition: all 0.35s ease;
-  z-index: 2;
-}
-.ss-card:hover .ss-tag {
-  background: rgba(201, 154, 61, 0.95);
-  color: #071a2f;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* Body */
@@ -421,28 +410,20 @@
   padding: 1.25rem 1.4rem 1.4rem;
 }
 
-.ss-quote-icon {
-  color: var(--ss-gold);
-  opacity: 0.55;
-  margin-bottom: 0.55rem;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.ss-card:hover .ss-quote-icon { opacity: 1; transform: scale(1.15) rotate(-6deg); }
-
-.ss-quote {
-  margin: 0 0 0.8rem;
-  min-height: 3rem;
+.ss-result {
+  margin: 0.8rem 0 0.45rem;
   font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.35rem;
-  line-height: 1.3;
-  color: #e9eef6;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ss-gold-soft);
 }
 
 .ss-name {
-  margin: 0 0 0.45rem;
-  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.4;
   color: #fff;
 }
 
@@ -465,7 +446,10 @@
 .ss-btn {
   position: relative;
   overflow: hidden;
+  display: inline-flex;
   align-self: flex-start;
+  align-items: center;
+  gap: 8px;
   margin-top: auto;
   padding: 0.7rem 1.3rem;
   border-radius: 999px;
@@ -475,6 +459,7 @@
   font-family: inherit;
   font-size: 0.92rem;
   letter-spacing: 0.08em;
+  text-decoration: none;
   cursor: pointer;
   z-index: 0;
   transition: color 0.4s ease, box-shadow 0.4s ease;
@@ -490,6 +475,7 @@
 }
 .ss-btn:hover { color: #071a2f; box-shadow: 0 8px 24px rgba(201, 154, 61, 0.4); }
 .ss-btn:hover::before { transform: translateX(0); }
+.ss-btn:focus-visible { outline: 2px solid var(--ss-gold-soft); outline-offset: 3px; }
 
 /* ---------- Animations ---------- */
 @keyframes ss-rise {
@@ -510,7 +496,7 @@
   .ss-head { flex-direction: column; align-items: flex-start; }
   .ss-card { flex-basis: 86%; }
   .ss-media { height: 200px; }
-  .ss-quote { font-size: 1.25rem; }
+  .ss-result { font-size: 1.3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

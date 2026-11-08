@@ -99,87 +99,101 @@
 
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, GraduationCap, MapPin, Quote } from 'lucide-react';
-import student1 from '../../assets/images/img 2.jpg';
-import student2 from '../../assets/images/img 3.jpg';
-import student3 from '../../assets/images/img 4.jpg';
+import { ArrowUpRight, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import toeflResultOne from '../../assets/success/1 toefl 1.png';
+import toeflResultTwo from '../../assets/success/2 toefl.jpeg';
+import duolingoResultOne from '../../assets/success/3 duolingo (2).jpeg';
+import duolingoResultTwo from '../../assets/success/4 duolingo.jpeg';
+import oxfordResult from '../../assets/success/5 oxford ellt.jpeg';
+import microsoftCertification from '../../assets/success/6 microsoft.jpeg';
+import apscaResult from '../../assets/success/7 APSCA.jpeg';
+import awsCertification from '../../assets/success/8 AWS.jpeg';
+import camsCertification from '../../assets/success/9 cams.jpeg';
 import './SuccessStories.css';
 
-/* ⚠️ Apni images ke path yahan lagain (public folder ya import) */
 const stories = [
   {
     id: 1,
-    name: 'Ayesha',
-    country: 'UK',
-    quote: 'They made every step feel clear and possible.',
-    program: 'MSc Data Science',
-    university: 'Sample University of London',
-    image: student1,
+    type: 'English Tests',
+    title: 'TOEFL iBT',
+    result: '5.0 / 6 · CEFR C1',
+    detail: 'Reading 6.0 · Listening 5.0 · Speaking 4.0 · Writing 4.5',
+    image: toeflResultOne,
   },
   {
     id: 2,
-    name: 'Hamza',
-    country: 'Canada',
-    quote: 'Honest advice, and always available when I needed it.',
-    program: 'Postgraduate Diploma, Business',
-    university: 'Sample College Toronto',
-    image: student2,
+    type: 'English Tests',
+    title: 'TOEFL iBT',
+    result: '5.5 / 6 · CEFR C1',
+    detail: 'Reading 6.0 · Listening 6.0 · Speaking 4.0 · Writing 5.0',
+    image: toeflResultTwo,
   },
   {
     id: 3,
-    name: 'Sara',
-    country: 'USA',
-    quote: 'The interview coaching gave me real confidence.',
-    program: 'BS Computer Science',
-    university: 'Sample State University',
-    image: student3,
+    type: 'English Tests',
+    title: 'Duolingo English Test',
+    result: '155 / 160 · CEFR C2',
+    detail: 'Official certificate shared by the learner',
+    image: duolingoResultOne,
   },
   {
     id: 4,
-    name: 'Usman',
-    country: 'Australia',
-    quote: 'A transparent process from start to finish.',
-    program: 'Master of Engineering',
-    university: 'Sample Institute of Technology',
-    image: student1,
+    type: 'English Tests',
+    title: 'Duolingo English Test',
+    result: '135 / 160',
+    detail: 'Certified test result shared by the learner',
+    image: duolingoResultTwo,
   },
   {
     id: 5,
-    name: 'Maryam',
-    country: 'UK',
-    quote: 'From shortlisting to visa, I never felt lost for a second.',
-    program: 'MA International Relations',
-    university: 'Sample University of Manchester',
-    image: student2,
+    type: 'English Tests',
+    title: 'Oxford ELLT',
+    result: 'Overall level 8',
+    detail: 'Listening 7 · Reading 7 · Writing 8 · Speaking 7',
+    image: oxfordResult,
   },
   {
     id: 6,
-    name: 'Ali',
-    country: 'Canada',
-    quote: 'Their guidance helped me secure a scholarship I thought was out of reach.',
-    program: 'Master of Information Technology',
-    university: 'Sample University of Waterloo',
-    image: student3,
+    type: 'IT Certifications',
+    title: 'Microsoft Certified',
+    result: 'DevOps Engineer Expert',
+    detail: 'Microsoft certification shared by the learner',
+    image: microsoftCertification,
   },
   {
     id: 7,
-    name: 'Zainab',
-    country: 'USA',
-    quote: 'Patient, professional, and genuinely invested in my future.',
-    program: 'MS Public Health',
-    university: 'Sample University of California',
-    image: student1,
+    type: 'Professional Certifications',
+    title: 'APSCA Part I CSCA Exam',
+    result: 'Pass · 87%',
+    detail: 'Exam report shared by the learner',
+    image: apscaResult,
+  },
+  {
+    id: 8,
+    type: 'IT Certifications',
+    title: 'AWS Certified',
+    result: 'DevOps Engineer – Professional',
+    detail: 'AWS certification shared by the learner',
+    image: awsCertification,
+  },
+  {
+    id: 9,
+    type: 'Professional Certifications',
+    title: 'CAMS',
+    result: 'Certified Anti-Money Laundering Specialist',
+    detail: 'Professional certification shared by the learner',
+    image: camsCertification,
   },
 ];
 
-const filters = ['All', 'UK', 'Canada', 'USA', 'Australia'];
+const filters = ['All', 'English Tests', 'IT Certifications', 'Professional Certifications'];
 
 const SuccessStories = () => {
   const [active, setActive] = useState('All');
   const trackRef = useRef(null);
 
   const visible = useMemo(
-    () => (active === 'All' ? stories : stories.filter((s) => s.country === active)),
+    () => (active === 'All' ? stories : stories.filter((story) => story.type === active)),
     [active]
   );
 
@@ -213,12 +227,17 @@ const SuccessStories = () => {
             </h2>
             <span className="ss-underline" />
             <p className="ss-sub">
-              Every journey is personal. Here are a few of the students we’ve had the privilege of
-              guiding.
+              Exam results and professional certifications shared by our learners.
             </p>
           </div>
-
-          
+          <div className="ss-arrows">
+            <button type="button" className="ss-arrow" aria-label="Previous success stories" onClick={() => scrollByCard(-1)}>
+              <ChevronLeft size={20} />
+            </button>
+            <button type="button" className="ss-arrow" aria-label="Next success stories" onClick={() => scrollByCard(1)}>
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
 
         <div className="ss-filters">
@@ -238,24 +257,20 @@ const SuccessStories = () => {
           {visible.map((s, i) => (
             <article className="ss-card" key={s.id} style={{ animationDelay: `${i * 0.09}s` }}>
               <div className="ss-media">
-                <img src={s.image} alt={`${s.name} success story`} loading="lazy" />
-                <span className="ss-media-fade" />
-                <span className="ss-tag">
-                  <MapPin size={15} />
-                  {s.country}
-                </span>
+                <img src={s.image} alt={`${s.title} result or certificate`} />
               </div>
 
               <div className="ss-body">
-                <Quote className="ss-quote-icon" size={34} />
-                <p className="ss-quote">“{s.quote}”</p>
-                <h3 className="ss-name">{s.name}</h3>
+                <span className="ss-category">{s.type}</span>
+                <p className="ss-result">{s.result}</p>
+                <h3 className="ss-name">{s.title}</h3>
                 <p className="ss-program">
-                  <GraduationCap size={17} />
-                  {s.program}
+                  <Award size={17} />
+                  {s.detail}
                 </p>
-                <p className="ss-uni">{s.university}</p>
-                <button type="button" className="ss-btn">View Story</button>
+                <a className="ss-btn" href={s.image} target="_blank" rel="noreferrer">
+                  View result <ArrowUpRight size={16} />
+                </a>
               </div>
             </article>
           ))}
