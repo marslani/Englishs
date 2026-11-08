@@ -5,7 +5,6 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import './Footer.css';
 
 const quickLinks = [
-  { label: 'About Us', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Study Destinations', href: '#destinations' },
   { label: 'Contact', href: '#contact' },

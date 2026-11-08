@@ -7,7 +7,6 @@ import './Navbar.css';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Study Destinations', href: '#destinations' },
   { label: 'Language Tests', href: '#test-preparation' },

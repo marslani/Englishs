@@ -105,7 +105,6 @@ import ApplicationProcess from '../../components/ApplicationProcess/ApplicationP
 import SuccessStories from '../../components/SuccessStories/SuccessStories';
 import TestPreparation from '../../components/TestPreparation/TestPreparation';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
-import About from '../../components/About/About';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import CTASection from '../../components/CTASection/CTASection';
 
@@ -144,7 +143,6 @@ const HomePage = () => {
         <SuccessStories />
         <TestPreparation />
         <WhyChooseUs />
-        <About />
         <Testimonials />
         <CTASection />
        

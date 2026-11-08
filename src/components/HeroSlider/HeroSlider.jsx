@@ -25,7 +25,7 @@ const slidesData = [
     primaryCta: 'Get Started',
     primaryLink: '#contact',
     secondaryCta: 'Learn More',
-    secondaryLink: '#about',
+    secondaryLink: '#services',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920',
   },
   {
