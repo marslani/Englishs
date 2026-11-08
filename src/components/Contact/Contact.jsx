@@ -36,23 +36,23 @@ const Contact = () => {
           <div className="contact-list">
             <div className="contact-item">
               <Phone size={18} />
-              <span>+44 20 7946 1234</span>
+              <span>+92 323 7722686</span>
             </div>
             <div className="contact-item">
               <MessageSquare size={18} />
-              <span>+44 7700 900123</span>
+              <span>+92 323 7722686</span>
             </div>
             <div className="contact-item">
               <Mail size={18} />
-              <span>hello@wemanage.co</span>
+              <span>studygohub@gmail.com</span>
             </div>
             <div className="contact-item">
               <MapPin size={18} />
-              <span>18 Regent Street, London, UK</span>
+              <span>WorldWide</span>
             </div>
             <div className="contact-item">
               <Clock3 size={18} />
-              <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+              <span>24/7</span>
             </div>
           </div>
         </div>

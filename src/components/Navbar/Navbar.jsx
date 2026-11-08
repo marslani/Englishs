@@ -100,12 +100,12 @@ const Navbar = () => {
             onClick={() => handleLinkClick('Home')}
           >
             <div className="brand-logo-badge">
-              <span>W</span>
-              <small>M</small>
+              <span>SG</span>
+              <small>H</small>
             </div>
 
             <span className="brand-text">
-              We Manage
+              StudyGo Hub
             </span>
           </a>
 

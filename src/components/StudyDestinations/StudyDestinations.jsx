@@ -146,28 +146,7 @@ const StudyDestinations = () => {
           </div>
 
           <div className="sd-nav">
-            <button
-              type="button"
-              className="sd-nav-btn"
-              onClick={() => scrollByCard(-1)}
-              disabled={atStart}
-              aria-label="Previous"
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="sd-nav-btn"
-              onClick={() => scrollByCard(1)}
-              disabled={atEnd}
-              aria-label="Next"
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
+           
           </div>
         </div>
 

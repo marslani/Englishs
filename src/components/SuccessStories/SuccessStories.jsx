@@ -218,14 +218,7 @@ const SuccessStories = () => {
             </p>
           </div>
 
-          <div className="ss-arrows">
-            <button type="button" className="ss-arrow" aria-label="Previous" onClick={() => scrollByCard(-1)}>
-              <ChevronLeft size={20} />
-            </button>
-            <button type="button" className="ss-arrow" aria-label="Next" onClick={() => scrollByCard(1)}>
-              <ChevronRight size={20} />
-            </button>
-          </div>
+          
         </div>
 
         <div className="ss-filters">

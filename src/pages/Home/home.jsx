@@ -92,7 +92,7 @@
 
 
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Loader from '../../components/Loader/Loader';
@@ -114,6 +114,8 @@ import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 import './home.css';
 
 const HomePage = () => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     AOS.init({
       duration: 850,
@@ -124,19 +126,14 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const loader = document.querySelector('.loader-shell');
-      if (loader) {
-        loader.classList.add('hidden');
-      }
-    }, 1600);
+    const timer = setTimeout(() => setLoading(false), 1600);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="home-page">
-      <Loader visible={true} />
+      <Loader visible={loading} />
       <Navbar />
       <main>
         <HeroSlider />
